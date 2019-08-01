@@ -1375,6 +1375,7 @@ static int mpu6050_gyro_set_enable(struct mpu6050_sensor *sensor, bool enable)
 						"Failed to power up mpu6050\n");
 				goto exit;
 			}
+			mpu6050_reset_chip(sensor);
 			ret = mpu6050_restore_context(sensor);
 			if (ret < 0) {
 				dev_err(&sensor->client->dev,
@@ -1435,7 +1436,8 @@ static int mpu6050_gyro_set_enable(struct mpu6050_sensor *sensor, bool enable)
 			ret = -EBUSY;
 			goto exit;
 		}
-
+		if (!sensor->cfg.accel_enable && !sensor->cfg.gyro_enable)
+			mpu6050_power_ctl(sensor, false);
 	}
 
 exit:
@@ -2116,7 +2118,7 @@ static int mpu6050_accel_set_enable(struct mpu6050_sensor *sensor, bool enable)
 					"Failed to set power up mpu6050");
 				return ret;
 			}
-
+			mpu6050_reset_chip(sensor);
 			ret = mpu6050_restore_context(sensor);
 			if (ret < 0) {
 				dev_err(&sensor->client->dev,
@@ -2178,7 +2180,8 @@ static int mpu6050_accel_set_enable(struct mpu6050_sensor *sensor, bool enable)
 			ret = -EBUSY;
 			return ret;
 		}
-
+		if (!sensor->cfg.accel_enable && !sensor->cfg.gyro_enable)
+			mpu6050_power_ctl(sensor, false);
 	}
 
 	return ret;
