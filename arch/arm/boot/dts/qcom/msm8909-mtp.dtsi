@@ -137,7 +137,7 @@
 		qcom,key-codes = <158 139 172 217>;
 	};
 
-	i2c@78b6000 { /* BLSP1 QUP2 */
+/*	i2c@78b6000 { /* BLSP1 QUP2 */
 		nfc-nci@e {
 			compatible = "qcom,nfc-nci";
 			reg = <0x0e>;
@@ -170,7 +170,7 @@
 			clocks = <&clock_rpm clk_bb_clk2_pin>;
 			clock-names = "ref_clk";
 		};
-	};
+	};*/
 
 	gpio_keys {
 		compatible = "gpio-keys";
@@ -470,6 +470,14 @@
 		invn,place = "Portrait Down";
 	};
 
+	pn547: pn547@28 {/*PN7150 NFC*/
+		compatible = "nxp,pn547";
+		reg = <0x28>;
+		clock-frequency = <400000>;
+		interrupt-gpios = <&msm_gpio 68 0x00>;
+		enable-gpios = <&msm_gpio 69 0x00>;
+	};
+
 	avago@39 { /* Ambient light and proximity sensor */
 		compatible = "avago,apds9900";
 		reg = <0x39>;
@@ -534,18 +542,6 @@
 	 };
 
 };
-/*PN7150 NFC*/
-&i2c_3 {
-	status = "okay";
-	pn547: pn547@28 {
-		compatible = "nxp,pn547";
-		reg = <0x28>;
-		clock-frequency = <400000>;
-		interrupt-gpios = <&msm_gpio 68 0x00>;
-		enable-gpios = <&msm_gpio 69 0x00>;
-	};
-};
-
 
 #include "dsi-panel-auo-qvga-cmd.dtsi"
 #include "dsi-panel-auo-cx-qvga-cmd.dtsi"
