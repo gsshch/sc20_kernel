@@ -439,8 +439,8 @@
 		compatible = "nxp,pn547";
 		reg = <0x28>;
 		clock-frequency = <400000>;
-		nxp,irq-gpio = <&msm_gpio 68 0x1>;
-		nxp,dis-gpio = <&msm_gpio 69 0x1>;
+		nxp,interrupt-gpio = <&msm_gpio 68 0x00>;
+		nxp,enable-gpio = <&msm_gpio 69 0x00>;
 	};
 
 	avago@39 { /* Ambient light and proximity sensor */
