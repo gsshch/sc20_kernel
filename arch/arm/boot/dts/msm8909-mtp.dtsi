@@ -82,7 +82,7 @@
 			goodix,display-coords = <0 0 719 1279>;
 			goodix,button-map= <139 172 158>;
 			goodix,enable-power-off;
-			goodix,product-id = "9147";
+			//goodix,product-id = "9147";       joseph modified  20160309
 			goodix,fw_name = "gtp_fw.bin";
 			pinctrl-names = "pmx_ts_active","pmx_ts_suspend";
 			pinctrl-0 = <&ts_int_active &ts_reset_active>;
@@ -111,20 +111,6 @@
 			goodix,have-touch-key;
 			goodix,driver-send-cfg;
 		};
-		goodix_ts@14 {
-			compatible = "goodix,gt1x";
-			reg = <0x14>;
-			interrupt-parent = <&msm_gpio>;
-			interrupts = <13 0x2008>;
-			goodix,rst-gpio  = <&msm_gpio 12 0x0>;
-			goodix,irq-gpio = <&msm_gpio 13 0x2008>;
-			goodix,power-gpio = <&msm_gpio 23 0x0>;
-			//vdd_ana-supply = <&pm8909_l17>;
-			vcc_i2c-supply  = <&pm8909_l6>;
-			pinctrl-names = "pmx_ts_active","pmx_ts_suspend";
-			pinctrl-0 = <&ts_int_active &ts_reset_active>;
-			pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
-		};
 	};
 
 	gen-vkeys {
@@ -135,6 +121,41 @@
 		qcom,panel-maxx = <719>;
 		qcom,panel-maxy = <1405>;
 		qcom,key-codes = <158 139 172 217>;
+	};
+
+	i2c@78b6000 { /* BLSP1 QUP2 */
+		nfc-nci@e {
+			compatible = "qcom,nfc-nci";
+			reg = <0x0e>;
+			qcom,irq-gpio = <&msm_gpio 21 0x00>;
+			qcom,dis-gpio = <&msm_gpio 20 0x00>;
+			qcom,clk-src = "BBCLK2";
+			interrupt-parent = <&msm_gpio>;
+			interrupts = <21 0>;
+			interrupt-names = "nfc_irq";
+			pinctrl-names = "nfc_active","nfc_suspend";
+			pinctrl-0 = <&nfc_int_active &nfc_disable_active>;
+			pinctrl-1 = <&nfc_int_suspend &nfc_disable_suspend>;
+			qcom,clk-gpio = <&pm8909_gpios 2 0>;
+			clocks = <&clock_rpm clk_bb_clk2_pin>;
+			clock-names = "ref_clk";
+		};
+		nq@28 {
+			compatible = "qcom,nq-nci";
+			reg = <0x28>;
+			qcom,nq-irq = <&msm_gpio 21 0x00>;
+			qcom,nq-ven = <&msm_gpio 20 0x00>;
+			qcom,nq-firm = <&msm_gpio 45 0x00>;
+			qcom,clk-src = "BBCLK2";
+			interrupt-parent = <&msm_gpio>;
+			interrupts = <21 0>;
+			interrupt-names = "nfc_irq";
+			pinctrl-names = "nfc_active","nfc_suspend";
+			pinctrl-0 = <&nfc_int_active &nfc_disable_active>;
+			pinctrl-1 = <&nfc_int_suspend &nfc_disable_suspend>;
+			clocks = <&clock_rpm clk_bb_clk2_pin>;
+			clock-names = "ref_clk";
+		};
 	};
 
 	gpio_keys {
@@ -432,15 +453,7 @@
 		vdd-supply = <&pm8909_l17>;
 		vlogic-supply = <&pm8909_l6>;
 		invn,gpio-int = <&msm_gpio 96 0x1>;
-		invn,place = "Portrait Down";
-	};
-
-	pn547@28 {/*PN7150 NFC*/
-		compatible = "nxp,pn547";
-		reg = <0x28>;
-		clock-frequency = <400000>;
-		nxp,interrupt-gpio = <&msm_gpio 68 0x00>;
-		nxp,enable-gpio = <&msm_gpio 69 0x00>;
+		invn,place = "Portrait Down Back Side";
 	};
 
 	avago@39 { /* Ambient light and proximity sensor */
@@ -514,18 +527,9 @@
 #include "dsi-panel-hx8394d-720p-video.dtsi"
 #include "dsi-panel-hx8394d-qhd-video.dtsi"
 #include "dsi-panel-ili9881c-720p-video.dtsi"
-#include "dsi-panel-hx8394f-720p-video.dtsi"
 
 &mdss_mdp {
 	qcom,mdss-pref-prim-intf = "dsi";
-};
-
-&dsi_hx8394f_720p_video {
-        qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_pwm";
-        qcom,mdss-dsi-bl-pmic-pwm-frequency = <100>;
-        qcom,mdss-dsi-bl-pmic-bank-select = <0>;
-        qcom,mdss-dsi-pwm-gpio = <&pm8909_mpps 2 0>;
-        qcom,cont-splash-enabled;
 };
 
 &dsi_ili9881c_720p_video {
@@ -620,4 +624,3 @@
 	pinctrl-5 = <&qdsd_clk_spmi &qdsd_cmd_spmi
 		     &qdsd_data0_spmi &qdsd_data3_spmi>;
 };
-
