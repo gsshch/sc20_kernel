@@ -118,6 +118,10 @@ static int mdss_dsi_panel_power_off(struct mdss_panel_data *pdata)
 				__func__, __mdss_dsi_pm_name(i));
 	}
 
+		if (gpio_is_valid(ctrl_pdata->iovcc_gpio))
+		gpio_set_value((ctrl_pdata->iovcc_gpio), 0);
+		gpio_free(ctrl_pdata->iovcc_gpio);
+
 end:
 	return ret;
 }
@@ -169,6 +173,11 @@ static int mdss_dsi_panel_power_on(struct mdss_panel_data *pdata)
 	 * bootloader. This needs to be done irresepective of whether
 	 * the lp11_init flag is set or not.
 	 */
+	 
+	 if (gpio_is_valid(ctrl_pdata->iovcc_gpio))
+		gpio_set_value((ctrl_pdata->iovcc_gpio), 1);
+	
+	 
 	if (pdata->panel_info.cont_splash_enabled ||
 		!pdata->panel_info.mipi.lp11_init) {
 		if (mdss_dsi_pinctrl_set_state(ctrl_pdata, true))
@@ -1884,6 +1893,13 @@ int dsi_panel_device_register(struct device_node *pan_node,
 	if (!gpio_is_valid(ctrl_pdata->rst_gpio))
 		pr_err("%s:%d, reset gpio not specified\n",
 						__func__, __LINE__);
+	
+    ctrl_pdata->iovcc_gpio = of_get_named_gpio(ctrl_pdev->dev.of_node,
+			 "qcom,platform-iovcc-gpio", 0);
+	if (!gpio_is_valid(ctrl_pdata->iovcc_gpio))
+		pr_err("%s:%d, reset gpio not specified\n",
+						__func__, __LINE__);
+
 
 	if (pinfo->mode_gpio_state != MODE_GPIO_NOT_VALID) {
 
@@ -1983,6 +1999,9 @@ int dsi_panel_device_register(struct device_node *pan_node,
 			return rc;
 		}
 	}
+
+	if (gpio_is_valid(ctrl_pdata->iovcc_gpio))
+		gpio_set_value((ctrl_pdata->iovcc_gpio), 1);
 
 	if (pinfo->cont_splash_enabled) {
 		rc = mdss_dsi_panel_power_ctrl(&(ctrl_pdata->panel_data),
