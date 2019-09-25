@@ -108,7 +108,7 @@
 
 		cam_sensor_front {
 			/* RESET, STANDBY */
-			qcom,pins = <&gp 28>, <&gp 33>;
+			qcom,pins = <&gp 97>, <&gp 33>;
 			qcom,num-grp-pins = <2>;
 			qcom,pin-func = <0>;
 			label = "cam_sensor_front";
@@ -121,7 +121,7 @@
 
 		cam_sensor_front_sleep {
 			/* RESET, STANDBY */
-			qcom,pins = <&gp 28>, <&gp 33>;
+			qcom,pins = <&gp 97>, <&gp 33>;
 			qcom,num-grp-pins = <2>;
 			qcom,pin-func = <0>;
 			label = "cam-sensor-front-sleep";
@@ -730,7 +730,7 @@
 		};
 
 		tpiu_setb_8 {
-			qcom,pins = <&gp 28>;
+			//qcom,pins = <&gp 28>;
 			qcom,num-grp-pins = <1>;
 			qcom,pin-func = <10>;
 			label = "tpiu-setb-8";
