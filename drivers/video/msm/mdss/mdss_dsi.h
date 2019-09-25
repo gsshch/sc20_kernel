@@ -342,6 +342,7 @@ struct mdss_dsi_ctrl_pdata {
 	int disp_en_gpio;
 	int bklt_en_gpio;
 	int mode_gpio;
+        int iovcc_gpio;
 	int bklt_ctrl;	/* backlight ctrl */
 	bool pwm_pmi;
 	int pwm_period;

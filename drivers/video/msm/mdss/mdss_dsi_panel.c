@@ -220,6 +220,14 @@ static int mdss_dsi_request_gpios(struct mdss_dsi_ctrl_pdata *ctrl_pdata)
 			goto disp_en_gpio_err;
 		}
 	}
+	
+	rc = gpio_request(ctrl_pdata->iovcc_gpio, "iovcc_gpio_n");
+	if (rc) {
+		pr_err("request iovcc gpio failed, rc=%d\n",
+			rc);
+		goto rst_gpio_err;
+	}
+	
 	rc = gpio_request(ctrl_pdata->rst_gpio, "disp_rst_n");
 	if (rc) {
 		pr_err("request reset gpio failed, rc=%d\n",
