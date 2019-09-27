@@ -1064,7 +1064,7 @@ oem_otg_vreg {
 			};
 		};
 
-		pmx_i2c_4 {
+		/*pmx_i2c_4 {
 			qcom,pins = <&gp 14>, <&gp 15>; /* SDA, SCL */
 			qcom,num-grp-pins = <2>;
 			qcom,pin-func = <2>;
@@ -1079,7 +1079,7 @@ oem_otg_vreg {
 				drive-strength = <2>;
 				bias-disable;
 			};
-		};
+		};*/
 
 		pmx_i2c_5 {
                         /* CLK, DATA */
@@ -1222,7 +1222,7 @@ oem_otg_vreg {
 		};
 
 		tlmm_gpio_key {
-			qcom,pins = <&gp 90>, <&gp 91>, <&gp 92>, <&gp 11>,  <&gp 17>,  <&gp 93>,  <&gp 98>;
+			qcom,pins = <&gp 90>, <&gp 91>,  <&gp 11>,  <&gp 17>,  <&gp 93>,  <&gp 98>;//<&gp 92>,
 			qcom,pin-func = <0>;
 			qcom,num-grp-pins = <7>;
 			label = "tlmm_gpio_key";
