@@ -439,8 +439,13 @@
 		compatible = "nxp,pn547";
 		reg = <0x28>;
 		clock-frequency = <400000>;
-		nxp,interrupt-gpio = <&msm_gpio 68 0x00>;
-		nxp,enable-gpio = <&msm_gpio 69 0x00>;
+		pinctrl-names = "nfc_active","nfc_suspend";
+        pinctrl-0 = <&nfc_int_active &nfc_disable_active>;
+        pinctrl-1 = <&nfc_int_suspend &nfc_disable_suspend>;
+        interrupt-parent = <&msm_gpio>;
+        interrupts = <14 0x2>;
+        enable-gpios = <&msm_gpio 92 0x1>;
+        interrupt-gpios = <&msm_gpio 14 0x1>;
 	};
 
 	avago@39 { /* Ambient light and proximity sensor */
