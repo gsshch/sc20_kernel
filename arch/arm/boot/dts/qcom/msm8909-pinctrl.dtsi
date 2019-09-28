@@ -1064,9 +1064,9 @@ oem_otg_vreg {
 			};
 		};
 
-		/*pmx_i2c_4 {
-			qcom,pins = <&gp 14>, <&gp 15>; /* SDA, SCL */
-			qcom,num-grp-pins = <2>;
+		pmx_i2c_4 {
+			qcom,pins = <&gp 15>; /* SDA, SCL<&gp 14>, */
+			qcom,num-grp-pins = <1>;
 			qcom,pin-func = <2>;
 			label = "pmx_i2c_4";
 
@@ -1079,7 +1079,7 @@ oem_otg_vreg {
 				drive-strength = <2>;
 				bias-disable;
 			};
-		};*/
+		};
 
 		pmx_i2c_5 {
                         /* CLK, DATA */
