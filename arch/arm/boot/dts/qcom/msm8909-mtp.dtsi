@@ -435,10 +435,9 @@
 		invn,place = "Portrait Down";
 	};
 
-	pn547@28 {/*PN7150 NFC*/
-		compatible = "nxp,pn547";
+	nfc:pn547@28 {/*PN7150 NFC*/
+		compatible = "nxp,pn544";
 		reg = <0x28>;
-		clock-frequency = <400000>;
 		pinctrl-names = "nfc_active","nfc_suspend";
         pinctrl-0 = <&nfc_int_active &nfc_disable_active>;
         pinctrl-1 = <&nfc_int_suspend &nfc_disable_suspend>;
