@@ -76,7 +76,7 @@
 			interrupts = <13 0x2008>;
 			reset-gpios = <&msm_gpio 12 0x0>;
 			interrupt-gpios = <&msm_gpio 13 0x2008>;
-			power-gpios = <&msm_gpio 23 0x0>;
+			power-gpios = <&msm_gpio 33 0x0>;
 			vcc-i2c-supply = <&pm8909_l6>;
 			goodix,panel-coords = <0 0 719 1405>;
 			goodix,display-coords = <0 0 719 1279>;
@@ -111,20 +111,7 @@
 			goodix,have-touch-key;
 			goodix,driver-send-cfg;
 		};
-		goodix_ts@14 {
-			compatible = "goodix,gt1x";
-			reg = <0x14>;
-			interrupt-parent = <&msm_gpio>;
-			interrupts = <13 0x2008>;
-			goodix,rst-gpio  = <&msm_gpio 12 0x0>;
-			goodix,irq-gpio = <&msm_gpio 13 0x2008>;
-			goodix,power-gpio = <&msm_gpio 23 0x0>;
-			//vdd_ana-supply = <&pm8909_l17>;
-			vcc_i2c-supply  = <&pm8909_l6>;
-			pinctrl-names = "pmx_ts_active","pmx_ts_suspend";
-			pinctrl-0 = <&ts_int_active &ts_reset_active>;
-			pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
-		};
+		
 	};
 
 	gen-vkeys {
