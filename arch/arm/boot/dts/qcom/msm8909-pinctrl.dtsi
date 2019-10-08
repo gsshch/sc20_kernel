@@ -108,7 +108,7 @@
 
 		cam_sensor_front {
 			/* RESET, STANDBY */
-			qcom,pins = <&gp 33>;
+			qcom,pins = <&gp 23>;
 			qcom,num-grp-pins = <1>;
 			qcom,pin-func = <0>;
 			label = "cam_sensor_front";
@@ -121,7 +121,7 @@
 
 		cam_sensor_front_sleep {
 			/* RESET, STANDBY */
-			qcom,pins =<&gp 33>;
+			qcom,pins =<&gp 23>;
 			qcom,num-grp-pins = <1>;
 			qcom,pin-func = <0>;
 			label = "cam-sensor-front-sleep";
@@ -785,7 +785,7 @@
 		};
 
 		tpiu_setb_13 {
-			qcom,pins = <&gp 33>;
+			/*qcom,pins = <&gp 33>;*/
 			qcom,num-grp-pins = <1>;
 			qcom,pin-func = <2>;
 			label = "tpiu-setb-13";
@@ -866,7 +866,7 @@
 		};
 
 		cti_trigout_a0 {
-			qcom,pins = <&gp 23>;
+			qcom,pins = <&gp 33>;
 			qcom,num-grp-pins = <1>;
 			qcom,pin-func = <2>;
 			label = "cti-trigout-a0";
