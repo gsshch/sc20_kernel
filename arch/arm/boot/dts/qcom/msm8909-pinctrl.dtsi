@@ -785,7 +785,7 @@
 		};
 
 		tpiu_setb_13 {
-			/*qcom,pins = <&gp 33>;*/
+			qcom,pins = <&gp 23>;
 			qcom,num-grp-pins = <1>;
 			qcom,pin-func = <2>;
 			label = "tpiu-setb-13";
