@@ -82,8 +82,8 @@
 
 		cam_sensor_rear {
 			/* RESET, STANDBY */
-			qcom,pins =  <&gp 35>, <&gp 34>, <&gp 9>, <&gp 10>;
-			qcom,num-grp-pins = <4>;
+			qcom,pins =  <&gp 35>, <&gp 34>, <&gp 9>, <&gp 10>, <&gp 110>, <&gp 97>;
+			qcom,num-grp-pins = <6>;
 			qcom,pin-func = <0>;
 			label = "cam-sensor-rear";
 			/* active state */
@@ -95,8 +95,8 @@
 
 		cam_sensor_rear_sleep {
 			/* RESET, STANDBY */
-			qcom,pins =  <&gp 35>, <&gp 34>, <&gp 9>, <&gp 10>;
-			qcom,num-grp-pins = <4>;
+			qcom,pins =  <&gp 35>, <&gp 34>, <&gp 9>, <&gp 10>, <&gp 110>, <&gp 97>;
+			qcom,num-grp-pins = <6>;
 			qcom,pin-func = <0>;
 			label = "cam-sensor-rear-sleep";
 			/*suspended state */
