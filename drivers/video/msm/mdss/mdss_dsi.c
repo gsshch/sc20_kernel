@@ -117,11 +117,11 @@ static int mdss_dsi_panel_power_off(struct mdss_panel_data *pdata)
 			pr_err("%s: failed to disable vregs for %s\n",
 				__func__, __mdss_dsi_pm_name(i));
 	}
-
+/*
 		if (gpio_is_valid(ctrl_pdata->iovcc_gpio))
 		gpio_set_value((ctrl_pdata->iovcc_gpio), 0);
 		gpio_free(ctrl_pdata->iovcc_gpio);
-
+*/
 end:
 	return ret;
 }
@@ -173,10 +173,10 @@ static int mdss_dsi_panel_power_on(struct mdss_panel_data *pdata)
 	 * bootloader. This needs to be done irresepective of whether
 	 * the lp11_init flag is set or not.
 	 */
-	 
+	 /*
 	 if (gpio_is_valid(ctrl_pdata->iovcc_gpio))
 		gpio_set_value((ctrl_pdata->iovcc_gpio), 1);
-	
+	*/
 	 
 	if (pdata->panel_info.cont_splash_enabled ||
 		!pdata->panel_info.mipi.lp11_init) {
@@ -1999,10 +1999,10 @@ int dsi_panel_device_register(struct device_node *pan_node,
 			return rc;
 		}
 	}
-
+/*
 	if (gpio_is_valid(ctrl_pdata->iovcc_gpio))
 		gpio_set_value((ctrl_pdata->iovcc_gpio), 1);
-
+*/
 	if (pinfo->cont_splash_enabled) {
 		rc = mdss_dsi_panel_power_ctrl(&(ctrl_pdata->panel_data),
 			MDSS_PANEL_POWER_ON);
