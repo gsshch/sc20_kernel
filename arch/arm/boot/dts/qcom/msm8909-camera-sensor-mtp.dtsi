@@ -130,8 +130,8 @@
 		qcom,csid-sd-index = <0>;
 		qcom,mount-angle = <90>;
 		qcom,actuator-src = <&actuator0>;
-		qcom,led-flash-src = <&led_flash0>;
-		qcom,eeprom-src = <&eeprom0>;
+		//qcom,led-flash-src = <&led_flash0>;
+		//qcom,eeprom-src = <&eeprom0>;
 		cam_vdig-supply = <&pm8909_l2>;	//not use
 		cam_vana-supply = <&pm8909_l17>;
 		cam_vio-supply = <&pm8909_l6>;
