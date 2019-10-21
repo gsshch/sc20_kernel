@@ -108,6 +108,8 @@
 
 		cam_sensor_front {
 			/* RESET, STANDBY */
+			qcom,pins = <&gp 33>;
+			qcom,num-grp-pins = <1>;
 			qcom,pin-func = <0>;
 			label = "cam_sensor_front";
 			/* active state */
@@ -119,6 +121,8 @@
 
 		cam_sensor_front_sleep {
 			/* RESET, STANDBY */
+			qcom,pins =<&gp 33>;
+			qcom,num-grp-pins = <1>;
 			qcom,pin-func = <0>;
 			label = "cam-sensor-front-sleep";
 			/* suspended state */
