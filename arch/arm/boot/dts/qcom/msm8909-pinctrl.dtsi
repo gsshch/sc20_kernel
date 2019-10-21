@@ -267,8 +267,8 @@
 		};
 
 		cdc-ext-mclk-lines {
-			qcom,pins = <&gp 98>;
-			qcom,num-grp-pins = <1>;
+			//qcom,pins = <&gp 98>;
+			//qcom,num-grp-pins = <1>;
 			qcom,pin-func = <2>;
 			label = "cdc-ext-mclk-lines";
 			cdc_ext_mclk_act: ext_mclk_on {
@@ -1222,7 +1222,7 @@ oem_otg_vreg {
 		};
 
 		tlmm_gpio_key {
-			qcom,pins = <&gp 90>, <&gp 91>,  <&gp 11>,  <&gp 17>,  <&gp 93>,  <&gp 98>;/*<&gp 92>,*/
+			qcom,pins = <&gp 90>, <&gp 91>,  <&gp 11>,  <&gp 17>,  <&gp 93>; /* <&gp 98>;<&gp 92>,*/
 			qcom,pin-func = <0>;
 			qcom,num-grp-pins = <6>;
 			label = "tlmm_gpio_key";

@@ -183,14 +183,6 @@
 			debounce-interval = <15>;
 		};
 
-		back {
-			label = "back";
-			gpios = <&msm_gpio 98 0x1>;
-			linux,input-type = <1>;
-			linux,code = <158>;
-			gpio-key,wakeup;
-			debounce-interval = <15>;
-		};
 	};
 
 	audio_codec_mtp: sound {
