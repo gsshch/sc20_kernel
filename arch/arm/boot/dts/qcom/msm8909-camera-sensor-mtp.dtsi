@@ -180,6 +180,7 @@
 	qcom_camera1: qcom,camera@1 {
 		cell-index = <1>;
 		compatible = "qcom,camera";
+		status = "disabled";
 		reg = <0x1>;
 		qcom,csiphy-sd-index = <0>;
 		qcom,csid-sd-index = <1>;
@@ -196,19 +197,20 @@
 		pinctrl-1 = <&cam_sensor_mclk1_sleep &cam_sensor_front_sleep>;
 		gpios = <&msm_gpio 27 0>,
 			//<&msm_gpio 28 0>,
-			<&msm_gpio 33 0>;
+			//<&msm_gpio 33 0>;
 		//qcom,gpio-reset = <1>;
-		qcom,gpio-standby = <2>;
-		qcom,gpio-req-tbl-num = <0 2>;
-		qcom,gpio-req-tbl-flags = <1 0>;
-		qcom,gpio-req-tbl-label = "CAMIF_MCLK",
+		//qcom,gpio-standby = <2>;
+		qcom,gpio-req-tbl-num = <0>;
+		qcom,gpio-req-tbl-flags = <1>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK";
 			//"CAM_RESET",
-			"CAM_STANDBY";
+			//"CAM_STANDBY";
 		qcom,cci-master = <0>;
-		status = "ok";
+		status = "disabled";
 		clocks = <&clock_gcc clk_mclk1_clk_src>,
 				<&clock_gcc clk_gcc_camss_mclk1_clk>;
 		clock-names = "cam_src_clk", "cam_clk";
 	};
+
 
 };
