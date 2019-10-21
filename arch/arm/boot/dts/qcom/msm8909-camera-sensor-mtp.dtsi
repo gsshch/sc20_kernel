@@ -180,7 +180,6 @@
 	qcom_camera1: qcom,camera@1 {
 		cell-index = <1>;
 		compatible = "qcom,camera";
-		status = "disabled";
 		reg = <0x1>;
 		qcom,csiphy-sd-index = <0>;
 		qcom,csid-sd-index = <1>;
