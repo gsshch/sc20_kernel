@@ -84,4 +84,4 @@ obj-$(CONFIG_TOUCHSCREEN_GT1X)		+= gt1x/
 obj-$(CONFIG_TOUCHSCREEN_BU21150)	+= bu21150.o
 obj-$(CONFIG_INPUT_MT_WRAPPER)		+= input_mt_wrapper.o
 obj-$(CONFIG_TOUCHSCREEN_IT7260_I2C)    += it7258_ts_i2c.o
-
+Obj-y += gt9xx.o gt9xx_update.o goodix_tool.o
