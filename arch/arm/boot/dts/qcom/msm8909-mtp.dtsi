@@ -78,12 +78,10 @@
 			interrupt-gpios = <&msm_gpio 13 0x2008>;
 			power-gpios = <&msm_gpio 33 0x0>;
 			vcc-i2c-supply = <&pm8909_l6>;
-			goodix,panel-coords = <0 0 719 1405>;
+			goodix,panel-coords = <0 0 719 1279>;
 			goodix,display-coords = <0 0 719 1279>;
-			goodix,button-map= <139 172 158>;
 			goodix,enable-power-off;
-			goodix,product-id = "9147";
-			goodix,fw_name = "gtp_fw.bin";
+			goodix,product-id = "911";
 			pinctrl-names = "pmx_ts_active","pmx_ts_suspend";
 			pinctrl-0 = <&ts_int_active &ts_reset_active>;
 			pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
@@ -108,7 +106,6 @@
 			00 00 00 00 00 00 00 00 00 00
 			00 00 00 00 35 01
 			];
-			goodix,have-touch-key;
 			goodix,driver-send-cfg;
 		};
 	};
@@ -119,7 +116,7 @@
 		qcom,disp-maxx = <719>;
 		qcom,disp-maxy = <1279>;
 		qcom,panel-maxx = <719>;
-		qcom,panel-maxy = <1405>;
+		qcom,panel-maxy = <1279>;
 		qcom,key-codes = <158 139 172 217>;
 	};
 
