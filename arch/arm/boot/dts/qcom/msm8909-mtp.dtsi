@@ -418,17 +418,16 @@
 		invn,place = "Portrait Down";
 	};
 
-	nfc:pn544@28 {/*PN7150 NFC*/
-		compatible = "qcom,pn544";
+	nfc:pn547@28 {/*PN7150 NFC*/
+		compatible = "nxp,pn544";
 		reg = <0x28>;
 		pinctrl-names = "nfc_active","nfc_suspend";
         pinctrl-0 = <&nfc_int_active &nfc_disable_active>;
         pinctrl-1 = <&nfc_int_suspend &nfc_disable_suspend>;
         interrupt-parent = <&msm_gpio>;
         interrupts = <14 0x2>;
-        interrupt-names = "nfc_irq";
-        qcom,nxq-ven = <&msm_gpio 92 0x1>;
-        qcom,nxq-irq = <&msm_gpio 14 0x1>;
+        enable-gpios = <&msm_gpio 92 0x1>;
+        interrupt-gpios = <&msm_gpio 14 0x1>;
 	};
 
 	avago@39 { /* Ambient light and proximity sensor */
