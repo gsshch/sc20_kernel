@@ -68,5 +68,5 @@ obj-$(CONFIG_QPNP_MISC) += qpnp-misc.o
 obj-$(CONFIG_QCOM_LIQUID_DOCK)	+= qcom_liquid_dock.o
 obj-y				+= qcom/
 obj-$(CONFIG_UID_CPUTIME) 	+= uid_cputime.o
-obj-y                           += nxp-pn5xx/
+obj-$(CONFIG_NFC_NXP_PN5XX)		+= nxp-pn5xx/
 

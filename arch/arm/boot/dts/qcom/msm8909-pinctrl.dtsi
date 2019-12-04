@@ -1150,7 +1150,7 @@ oem_otg_vreg {
 		};
 
 		pmx_rd_nfc_int{
-			qcom,pins = <&gp 21>;
+			qcom,pins = <&gp 14>;
 			qcom,pin-func = <0>;
 			qcom,num-grp-pins = <1>;
 			label = "pmx_nfc_int";
