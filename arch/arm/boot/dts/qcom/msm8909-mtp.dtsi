@@ -78,8 +78,8 @@
 			interrupt-gpios = <&msm_gpio 13 0x2008>;
 			power-gpios = <&msm_gpio 33 0x0>;
 			vcc-i2c-supply = <&pm8909_l6>;
-			goodix,panel-coords = <0 0 719 1279>;
-			goodix,display-coords = <0 0 719 1279>;
+			goodix,panel-coords = <0 0 720 1280>;
+			goodix,display-coords = <0 0 720 1280>;
 			goodix,enable-power-off;
 			goodix,product-id = "911";
 			pinctrl-names = "pmx_ts_active","pmx_ts_suspend";
@@ -108,16 +108,6 @@
 			];
 			goodix,driver-send-cfg;
 		};
-	};
-
-	gen-vkeys {
-		compatible = "qcom,gen-vkeys";
-		label = "synaptics_dsx";
-		qcom,disp-maxx = <719>;
-		qcom,disp-maxy = <1279>;
-		qcom,panel-maxx = <719>;
-		qcom,panel-maxy = <1279>;
-		qcom,key-codes = <158 139 172 217>;
 	};
 
 	gpio_keys {
